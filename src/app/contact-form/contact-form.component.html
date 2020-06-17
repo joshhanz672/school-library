@@ -1,0 +1,43 @@
+
+<form #f="ngForm" (ngSubmit)="submit(f)"> 
+    <div ngModelGroup="contact">
+        <div class="form-group">
+        <label for ="bookTitle">Book Title</label>
+        <!--
+        <input id="bookTitle" type="text" class="form-control">
+        -->
+        <label for="bookTitle">Book Title</label>
+        <input 
+        required 
+        minlength="3"
+        maxlength="100"
+        ngModel 
+        name="bookTitle" 
+        #bookTitle="ngModel" 
+        (change)="log(bookTitle)" 
+        id="bookTitle" 
+        type="text" 
+        class="form-control">
+        <div class="alert alert-danger" *ngIf="bookTitle.touched && !bookTitle.valid">Book Title is required</div>
+            <div class="alert alert-danger"
+            *ngIf="bookTitle.errors.required">Book title is required</div>
+            <div *ngIf="bookTitle.errors.minlength.requiredLength">Book title should be minimum 3 characters</div>
+        <!--    
+        <input ngModel name="bookTitle" #bookTitle="ngModel" (change)="log(bookTitle)" id="bookTitle" type="text" class="form-control">
+    -->
+        </div>
+    </div>
+    <div class="form-group">
+        <label for ="bookAuthor">Author name</label>
+        <input id="bookAuthor" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for ="bookLOCNum">Book Library of Congress index number</label>
+        <input id="bookLOCNum" type="text" class="form-control">
+    </div>
+    <div class="form-group"></div>
+        <label for="comment">Comment</label>
+        <textarea id="comment" cols="30" rows="2" class="form-control"></textarea>
+    <button class="btn btn-primary">Submit</button>
+</form>
+

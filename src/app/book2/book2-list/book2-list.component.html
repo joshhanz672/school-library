@@ -1,0 +1,91 @@
+<p>book2-list works!</p>
+<div class="container">
+    <div class="row">
+    <div class="col">
+    <section>
+    <header class="header">
+    <div class="row">
+    <div class="col-md-2">
+    <form name="booksForm">
+
+<!--
+        bookId: number;
+        bookTitle: string;
+        bookAuthor: string;
+        locRef: string;
+        allowedCheckoutDays: number;
+        isCheckedOut: boolean;
+        putOnRequest: boolean;
+
+-->
+
+    <table>
+     <tr>
+    <th colspan="2">Add Book</th>
+    </tr>
+    <tr>
+    <td>book Title:</td>
+    <td><input id="bookTitle" name="bookTitle" ></td>
+    </tr>
+    <tr>
+    <td>book Author:</td>
+    <td><input id="bookAuthor" name="bookAuthor"></td>
+    </tr>
+    <tr>
+    <td>Library of Congress call number:</td>
+    <td><input id="locRef" name="locRef" ></td>
+    </tr>
+    <tr>
+    <td>default checkout time in days:</td>
+    <td><input id="allowedCheckoutDays" name="allowedCheckoutDays" ></td>
+    </tr>
+    <tr>
+    <td>Is already checked out:</td>
+    <td><input id="isCheckedOut" name="isCheckedOut"></td>
+    </tr>
+    <tr>
+    <td>Is already on request:</td>
+    <td><input id="putOnRequest" name="putOnRequest"></td>
+    </tr>
+    <tr>
+    <td colspan="2"> <button type="button" (click)="createBook2()" class="blue-button">submit to add</button></td>
+    </tr>
+    </table>
+    </form>
+    </div>
+    </div>
+   </header>
+    </section>
+   <section class="main">
+   <table class="table">
+    <thead>
+    <tr>
+    <th>Book #</th>
+    <th>Book Title</th>
+    <th>Book Author</th>
+    <th>Library of Congress ID</th>
+    <th>Days for Checkout</th>
+    <th>Is Checked Out</th>
+    <th>Is On Request</th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book2 of books">
+    <th scope="row">{{book2.bookId}}</th>
+    <td>{{book2.bookTitle}}</td>
+    <td>{{book2.bookAuthor}}</td>
+    <td>{{book2.locRef}}</td>
+    <td>{{book2.allowedCheckoutDays}}</td>
+    <td>{{book2.isCheckedOut}}</td>
+    <td>{{book2.putOnRequest}}</td>
+    <td>
+    <button type="button" class="btn btn-danger" (click)="deleteBook2(book2)">Delete Book</button>
+    </td>
+    </tr>
+   </tbody>
+    </table>
+    </section>
+    </div>
+    </div>
+   </div>
