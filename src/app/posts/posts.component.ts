@@ -8,11 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent {
+  posts: any[];
+
   constructor(http: Http)
   {
+   
    http.get('http://localhost:8080/books').subscribe(response => {
      console.log(response.json());
    });
+   
+
+   /*
+   http.get('http://jsonplaceholder.typicode.com/posts').subscribe(response => {
+     //console.log(response.json());
+     this.posts = response.json();
+   }); */
+
   } 
 
 }

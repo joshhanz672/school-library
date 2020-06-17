@@ -9,35 +9,49 @@
         appInputFormat [format]="'uppercase'">  
 
  <hr>
+
+<book-req-form></book-req-form>
+
+ <hr>
 <p>Please enter search terms</p>
 
 <br>
 Book Title<br>
  <input 
     id="bookTitle"
+    name="bookTitle"
     type="text"
     ><br>
- <button>
+ <button value={bookTitle} (click)="getOneBookByTitle(title)">
   Submit by Book Title
 </button><br>
 Author Name<br>
  <input 
     id="bookAuthor"
+    name="bookAuthor"
     type="text"><br>
- <button>
+ <button value={bookAuthor} (click)="getOneBookByAuthor(author)"> 
   Submit by Book Author
 </button><br>
 Library of Congress ID (X[X] NN[.NN] format)<br>
  <input 
     id="bookLOCID"
+    name="bookLOCID"
     type="text"><br>
- <button>
+ <button value={bookLOCID} (click)="getOneBookByLOCNum(locNum)">
   Submit by LOC ID
 </button>
 <hr>
 
 To see all the books available, please press the below button.  <br>
-<button>See All Books</button>
+<button (click)="getAllBooks()" >See All Books</button>
+<br>
+ <textarea rows="10" columns="70" 
+ type="text">
+   </textarea>
+  <br>
+ <!-- <button>See All Books</button> -->
+<!-- Want to call the BookController.getAllBooks() method on pushing this button -->
 
 
  <!--
@@ -100,19 +114,24 @@ Library of Congress ID (X[X] NN[.NN] format)<br>
  <input 
     id="bookLOCID"
     type="text"><br>
- <button>
+ <button (click)="getAllBooks()">
   Search for availability for all books
 </button>
 <br>
-<button>
+ <textarea rows="10" columns="70" 
+ type="text">
+   </textarea>
+  <br>
+<br>
+<button (click)="getOneBookById(bookId)">
   Search for availability for one book by book id
 </button>
 <br>
-<button>
+<button (click)="getOneBookByTitle(title)">
   Search for availability for one book by title
 </button>
 <br>
-<button>
+<button (click)="getOneBookByAuthor(author)">
   Search for availability for one book by author name
 </button>
 <br>
@@ -133,16 +152,19 @@ Example:<br>
  <textarea rows="10" type="text">
    </textarea>
   <br>
+  <!-- With this textarea, we want to call the bookService.createBook(book) method -->
+  <!-- Manually call the BookController.getAllBooks() method 
+    to confirm that this was added, at user's discretion -->
 
- <button>
+ <button (click)="addBookByForm()">
   Add Book
 </button>
 
-<button>
+<button (click)="removeBookByID(bookId)">
   Remove Book
 </button>
 
-<button>
+<button (click)="updateBookByForm()">
   Update Book
 </button>
 

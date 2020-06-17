@@ -1,0 +1,91 @@
+<!--
+<p>book-req-form works!</p>
+-->
+
+<form #f="ngForm" (ngSubmit)="submitTitle(f)">
+    <!--
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="text" class="form-control">
+    </div>
+    -->
+    <div ngModelGroup="book-title-req" #titleReq="ngModelGroup"> 
+        <div *ngIf="!titleReq.valid">...</div>
+        <div class="form-group1">
+            <label for="bookTitle">Book Title</label>
+            <input 
+            required 
+            ngModel 
+            name="bookTitle" 
+            #bookTitle="ngModel" 
+            change="log(bookTitle)" 
+            id="bookTitle" 
+            type="text" 
+            class="form-control">
+            <div class="alert alert-danger" *ngIf="bookTitle.touched && !bookTitle.valid">Book title is required.</div>
+        <!--            <div *ngIf="bookTitle.errors.required">Book Title is required.</div> -->
+        </div>
+    </div>
+    <button class="btn btn-primary">Submit for Book Title</button>
+</form>
+
+    <!--
+    <div class="form-group">
+        <label for="bookAuthor">Book Author</label>
+        <input required ngModel name="bookAuthor" #bookAuthor="ngModel" change="log(bookAuthor)" id="bookAuthor" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="locId">Library of Congress Id</label>
+        <input required ngModel name="locId" #locId="ngModel" change="log(locId)" id="locId" type="text" class="form-control">
+    </div>
+    -->
+
+    <!--
+        Use this for the Admin book addition and update
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea  id="comment" cols="30" rows="10"></textarea>
+    </div>
+    -->
+    
+
+<form #f="ngForm" (ngSubmit)="submitAuthor(f)">
+    <div ngModelGroup="book-author-req" #authorReq="ngModelGroup"> 
+        <div *ngIf="!authorReq.valid">...</div>
+    <div class="form-group2">
+        <label for="bookAuthor">Book Author</label>
+        <input required 
+        ngModel 
+        name="bookAuthor" 
+        #bookAuthor="ngModel" 
+        change="log(bookAuthor)" 
+        id="bookAuthor" 
+        type="text" 
+        class="form-control">
+        <div class="alert alert-danger" *ngIf="bookAuthor.touched && !bookAuthor.valid">Book author is required.</div>
+            <!-- <div *ngIf="bookAuthor.errors.required">Book Author is required.</div> -->
+    </div>
+    </div>
+    <button class="btn btn-primary">Submit for Book Author</button>
+</form>
+
+<form #f="ngForm" (ngSubmit)="submitLOC(f)">
+    <div ngModelGroup="book-loc-req" #locReq="ngModelGroup"> 
+        <div *ngIf="!locReq.valid">...</div>
+    <div class="form-group3">
+        <label for="locId">Library of Congress Id</label>
+        <input 
+        required 
+        ngModel 
+        name="locId" 
+        #locId="ngModel" 
+        change="log(locId)" 
+        id="locId" 
+        type="text"
+         class="form-control"> 
+        <div class="alert alert-danger" *ngIf="locId.touched && !locId.valid">Library of Congress Id is required.</div>      
+           <!-- <div *ngIf="locId.errors.required">Library of Congress Id is required.</div> -->
+    </div>
+    </div>
+    <button class="btn btn-primary">Submit for Library of Congress ID</button>
+</form>
