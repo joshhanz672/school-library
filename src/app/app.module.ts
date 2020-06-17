@@ -35,7 +35,7 @@ import { InputFormatDirective } from './input-format.directive';
     BookModule,
     Book2Module,
     AppRoutingModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
   ],
   providers: [
     BooksService,

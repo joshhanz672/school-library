@@ -2,8 +2,6 @@ import { Book2Service } from './../book2/book2.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -31,10 +29,11 @@ export class BookComponent implements OnInit {
     }
     */
 
+
   constructor(private router: Router, private Book2Service: Book2Service) { }
 
   ngOnInit(): void {
-    
+
   }
 
    

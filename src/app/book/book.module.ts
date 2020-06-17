@@ -20,7 +20,8 @@ const routes: Routes = [
     at Module.ɵɵinject (core.js:950)
 
   */
-  path: 'http://localhost:8080/'},
+  //path: 'http://localhost:8080/books', redirectTo: 'BookComponent', component: BookComponent },
+  path: 'http://localhost:8080/books', component: BookComponent }
 ];
 
 @NgModule({
