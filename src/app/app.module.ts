@@ -15,20 +15,25 @@ import { BooksComponent } from './books.component';
 import { BookComponent } from './book/book.component';
 //import { ContactFormComponent } from './contact-form/contact-form.component';
 import { BookReqFormComponent } from './book-req-form/book-req-form.component';
+import { BookAuthorFormComponent } from './book-author-form/book-author-form.component';
+import { BookLocFormComponent } from './book-loc-form/book-loc-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { GetsComponent } from './gets/gets.component';
 import { InputFormatDirective } from './input-format.directive';
+
 //import { BookReqFormComponent } from './book-req-form/book-req-form.component';
 
 @NgModule({
   declarations: [
+    PostsComponent,
+    GetsComponent,
     AppComponent,
     BooksComponent,
     BookComponent,
-    PostsComponent,
-    GetsComponent,
     InputFormatDirective,
-    BookReqFormComponent 
+    BookReqFormComponent,
+    BookAuthorFormComponent,
+    BookLocFormComponent 
   ],
   imports: [
     HttpModule,
@@ -45,6 +50,6 @@ import { InputFormatDirective } from './input-format.directive';
     GetService,
     BooksService
   ],   
-  bootstrap: [AppComponent, BookReqFormComponent]
+  bootstrap: [AppComponent, BookReqFormComponent, BookAuthorFormComponent, BookLocFormComponent]
 })
 export class AppModule { }

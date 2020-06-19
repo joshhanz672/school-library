@@ -1,0 +1,20 @@
+
+<form #f="ngForm" (ngSubmit)="submitAuthor(f)">
+    <div ngModelGroup="bookAuthorReq" #authorReq="ngModelGroup"> 
+        <div *ngIf="!authorReq.valid">...</div>
+    <div class="form-group2">
+        <label for="bookAuthor">Book Author</label>
+        <input required 
+        ngModel 
+        name="bookAuthor" 
+        #bookAuthor="ngModel" 
+        change="log(bookAuthor)" 
+        id="bookAuthor" 
+        type="text" 
+        class="form-control">
+        <div class="alert alert-danger" *ngIf="bookAuthor.touched && !bookAuthor.valid">Book author is required.</div>
+            <!-- <div *ngIf="bookAuthor.errors.required">Book Author is required.</div> -->
+    </div>
+    </div>
+    <button class="btn btn-primary">Submit for Book Author</button>
+</form>

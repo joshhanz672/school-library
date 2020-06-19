@@ -1,3 +1,4 @@
+//import { Observable } from 'rxjs/Observable';
 import { BookComponent } from './book/book.component';
 import { Component, Input } from '@angular/core';
 
@@ -8,6 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   //title = 'school-library';
+  private url = 'http://localhost:8080/';
  
   books = [
     { id: 1, name: 'book1 '},

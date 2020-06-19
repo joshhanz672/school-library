@@ -3,28 +3,51 @@ import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-posts',
+  selector: 'posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent {
   posts: any[];
+  //private url = 'http://jsonplaceholder.typicode.com/posts';
+  private url = 'http://localhost:8080/books/';
 
-  constructor(http: Http)
+  constructor(private http: Http)
   {
-   
-   http.get('http://localhost:8080/books').subscribe(response => {
-     console.log(response.json());
-   });
-   
-
-   /*
-   http.get('http://jsonplaceholder.typicode.com/posts').subscribe(response => {
+   http.get(this.url).subscribe(response => {
      //console.log(response.json());
      this.posts = response.json();
-   }); */
+   }); 
 
   } 
+
+  createPost(input: HTMLInputElement) {
+    //let post = { title: input.value };
+    //let post = { bookTitle: input.value};
+    //let post:any = { bookTitle: input.value, bookAuthor: input.value, 
+    //  locRef: input.value, checkedOut: input.value, putOnRequest: input.value};
+
+    let post:any = { bookTitle: input.value };
+    
+    this.http.post(this.url, JSON.stringify(post))
+    .subscribe(response => {
+      console.log(response.json());
+  });
+  }
+
+  updatePost(post)
+  {
+    this.http.patch(this.url, JSON.stringify({ bookTitle: "", 
+                                                bookAuthor: "", 
+                                                locRef: "", 
+                                                checkedOut: false, 
+                                                putOnRequest: false }))
+                                                .subscribe(response => {
+                                                  console.log(response.json());
+                                                })
+    
+  }
+
 
 }
 

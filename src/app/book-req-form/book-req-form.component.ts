@@ -14,7 +14,7 @@ export class BookReqFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitTitle(f)
+  submitTitle(fT)
   {
     /**
      * Expected action
@@ -24,17 +24,23 @@ export class BookReqFormComponent implements OnInit {
 
   @GetMapping("/books/bybooktitle/{bybooktitle}")
      */
-    console.log(f);
+    console.log("book title:  ");
+    console.log(fT);
+    console.log(fT.value.bookTitleReq.bookTitle);
+    
   }
 
-  submitAuthor(f)
+  // Removed because the submitAuthor and submitLOC were separated into two different forms.
+  /*
+  submitAuthor(fA)
   {
-    console.log(f);
+    console.log(fA);
   }
 
-  submitLOC(f)
+  submitLOC(fL)
   {
-    console.log(f);
+    console.log(fL);
   }
+*/
 
 }
